@@ -15,20 +15,24 @@ function calculateYears(startDate: Date, endDate?: Date): number {
 
 // Calculate total years of experience from employment experiences
 function calculateTotalExperienceYears(experiences: CvExperience[]): number {
-  const employmentExperiences = experiences.filter(exp => exp.type === "employment");
-  
+  const employmentExperiences = experiences.filter(
+    (exp) => exp.type === "employment"
+  );
+
   if (employmentExperiences.length === 0) return 0;
-  
+
   // Sort by start date to handle overlapping periods
-  const sortedExperiences = employmentExperiences.sort((a, b) => a.start.getTime() - b.start.getTime());
-  
+  const sortedExperiences = employmentExperiences.sort(
+    (a, b) => a.start.getTime() - b.start.getTime()
+  );
+
   let totalYears = 0;
   let currentEnd = new Date(0);
-  
+
   for (const exp of sortedExperiences) {
     const start = exp.start;
     const end = exp.end || new Date();
-    
+
     // If this experience starts after the previous one ended, add the gap
     if (start > currentEnd) {
       totalYears += calculateYears(start, end);
@@ -38,12 +42,12 @@ function calculateTotalExperienceYears(experiences: CvExperience[]): number {
         totalYears += calculateYears(currentEnd, end);
       }
     }
-    
+
     if (end > currentEnd) {
       currentEnd = end;
     }
   }
-  
+
   return Math.round(totalYears * 10) / 10; // Round to 1 decimal place
 }
 
@@ -67,7 +71,16 @@ export const experiences: CvExperience[] = [
       "Enhanced deep learning model performance through hyperparameter optimization, achieving 7% improvement in accuracy metrics.",
       "Implemented data preprocessing pipelines and feature engineering for medical imaging datasets.",
     ],
-    techStack: ["Python", "Tensorflow", "Keras", "Scikit-learn", "Matplotlib", "Deep Learning", "Computer Vision", "Machine Learning"],
+    techStack: [
+      "Python",
+      "Tensorflow",
+      "Keras",
+      "Scikit-learn",
+      "Matplotlib",
+      "Deep Learning",
+      "Computer Vision",
+      "Machine Learning",
+    ],
   },
   {
     id: "csharp-developer-megasoft",
@@ -94,7 +107,7 @@ export const experiences: CvExperience[] = [
       "Machine Learning",
       "NLP",
       "Computer Vision",
-      "RESTful APIs"
+      "RESTful APIs",
     ],
   },
   {
@@ -120,7 +133,7 @@ export const experiences: CvExperience[] = [
       "CSS",
       "MySQL",
       "Linux",
-      "RESTful APIs"
+      "RESTful APIs",
     ],
   },
   {
@@ -357,7 +370,8 @@ export const experiences: CvExperience[] = [
       "Event-Driven Architecture",
     ],
   },
-];
+].filter((e) => e.type !== "project") as CvExperience[];
+
 experiences.sort((a, b) => {
   return new Date(b.start).getTime() - new Date(a.start).getTime();
 });
@@ -372,9 +386,9 @@ export const getExperienceDuration = (experience: CvExperience): string => {
   const years = calculateExperienceYears(experience);
   if (years < 1) {
     const months = Math.round(years * 12);
-    return `${months} month${months !== 1 ? 's' : ''}`;
+    return `${months} month${months !== 1 ? "s" : ""}`;
   }
-  return `${years} year${years !== 1 ? 's' : ''}`;
+  return `${years} year${years !== 1 ? "s" : ""}`;
 };
 
 export const getTotalExperienceYears = (): number => {
@@ -459,7 +473,7 @@ awards.sort((a, b) => {
 });
 
 export const languages: string[] = [
-  "English - Fluent",
+  "English - Fluent (TOEFL: 100)",
   "Russian - Fluent",
   "Kyrgyz - Native",
 ];
@@ -468,13 +482,12 @@ export const skills = (() => {
   // Count frequency of each skill
   const skillCounts: Record<string, number> = {};
   experiences.forEach((exp) => {
-    exp.techStack.forEach((skill) => {
+    exp?.techStack?.forEach((skill) => {
       skillCounts[skill] = (skillCounts[skill] || 0) + 1;
     });
   });
   // Sort skills by frequency (descending)
-  const sortedSkills = Object.entries(skillCounts)
-    .sort((a, b) => b[1] - a[1]);
+  const sortedSkills = Object.entries(skillCounts).sort((a, b) => b[1] - a[1]);
   // Only amplify the most relevant (top 10) skills
   const topSkills = sortedSkills.slice(0, 30).map(([skill]) => skill);
   return topSkills;

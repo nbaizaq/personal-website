@@ -1,5 +1,10 @@
 <template>
   <div class="container">
+    <div
+      class="text-primary-600 font-medium uppercase underline text-center my-4"
+    >
+      Ready to relocate!
+    </div>
     <ClientOnly>
       <div class="flex justify-end print:hidden" v-if="supportsPrint">
         <a href="/cv-data.json">
@@ -50,18 +55,21 @@
               {{ award.location }}
             </div>
           </div>
-          <template v-if="showMoreAwards">
-            <div v-for="award in awards.slice(3)" :key="award.award">
-              <div class="text-xs text-gray-500">
-                {{ award.dates.map(formatDate).join(" - ") }}
-              </div>
-              <div>{{ award.award }}</div>
-              <div class="text-sm text-gray-700">
-                {{ award.location }}
-              </div>
+          <div
+            v-for="award in awards.slice(3)"
+            :key="award.award"
+            class="print:block"
+            :class="showMoreAwards ? 'block' : 'hidden'"
+          >
+            <div class="text-xs text-gray-500">
+              {{ award.dates.map(formatDate).join(" - ") }}
             </div>
-          </template>
-          <div class="flex justify-center" v-if="!showMoreAwards">
+            <div>{{ award.award }}</div>
+            <div class="text-sm text-gray-700">
+              {{ award.location }}
+            </div>
+          </div>
+          <div class="flex justify-center print:hidden" v-if="!showMoreAwards">
             <Button variant="text" size="small" @click="onShowMoreAwards">
               More <i class="pi pi-chevron-down"></i>
             </Button>

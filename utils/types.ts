@@ -8,7 +8,7 @@ export interface CvExperience {
   company: string;
   location?: string;
   responsibilities: string[];
-  techStack: string[];
+  techStack?: string[];
   employmentType: EmploymentType; // Ensure this uses the updated EmploymentType
   website?: string;
 }

@@ -4,29 +4,39 @@
     class="border-1 p-4 rounded-xl border-gray-200"
     :class="isPresent ? 'border-primary-200 bg-primary-50' : 'border-gray-200'"
   >
-    <div class="flex gap-2 items-center">
-      <div
-        class="text-sm italic"
-        :class="isPresent ? 'text-primary-500' : 'text-gray-500'"
-      >
-        {{ workingPeriod }}
+    <div class="flex gap-2 justify-between items-center">
+      <div class="flex gap-2 items-center">
+        <div
+          class="text-sm italic"
+          :class="isPresent ? 'text-primary-500' : 'text-gray-500'"
+        >
+          {{ workingPeriod }}
+        </div>
+        <SharedEmploymentTypeTag
+          :type="props.experience.employmentType"
+          :severity="
+            props.experience.type === 'employment' ? 'primary' : 'secondary'
+          "
+        />
+        <SharedEmploymentTypeTag
+          v-if="props.experience.type === 'project'"
+          type="project"
+          severity="accent"
+        />
       </div>
-      <SharedEmploymentTypeTag
-        :type="props.experience.employmentType"
-        :severity="
-          props.experience.type === 'employment' ? 'primary' : 'secondary'
-        "
-      />
-      <SharedEmploymentTypeTag
-        v-if="props.experience.type === 'project'"
-        type="project"
-        severity="accent"
-      />
+      <div
+        v-if="props.experience.location"
+        class="text-sm text-gray-500 flex items-center gap-1"
+      >
+        <i class="pi pi-map-marker !text-xs" />
+        {{ props.experience.location }}
+      </div>
     </div>
-    <div class="text-xl py-1 font-medium">
+
+    <div class="text-xl py-2 font-medium">
       {{ props.experience.title }}
     </div>
-    <div class="text-sm">
+    <div class="text-sm text-gray-700">
       @ {{ props.experience.company }}
       <div
         v-if="props.experience.website"
@@ -42,10 +52,6 @@
         >
       </div>
     </div>
-    <div v-if="props.experience.location" class="text-sm mt-1 text-gray-500 flex items-center gap-1">
-      <i class="pi pi-map-marker !text-xs" />
-      {{ props.experience.location }}
-    </div>
     <div class="mt-4">
       <div class="text-sm text-gray-500">Responsibilities</div>
       <ul class="mt-2 list-disc pl-4" v-if="props.experience.responsibilities">
@@ -56,15 +62,6 @@
           {{ responsibility }}
         </li>
       </ul>
-    </div>
-    <div
-      v-if="props.experience.techStack.length"
-      class="flex gap-2 items-center flex-wrap mt-4"
-    >
-      <SharedSkillTag
-        v-for="techStackItem in props.experience.techStack"
-        :value="techStackItem"
-      />
     </div>
   </div>
 </template>
