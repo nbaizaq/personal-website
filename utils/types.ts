@@ -1,16 +1,14 @@
 export type ExperienceType = 'employment' | 'project';
 export interface CvExperience {
   id?: string;
-  type: ExperienceType;
   title: string;
   start: Date;
   end?: Date;
   company: string;
   location?: string;
   responsibilities: string[];
-  techStack?: string[];
-  employmentType: EmploymentType; // Ensure this uses the updated EmploymentType
   website?: string;
+  pageBreak?: boolean;
 }
 
 export interface CvEducation {

@@ -30,7 +30,7 @@
       </ul>
     </div>
 
-    <div class="mt-4" v-if="props.education.academicLeaves?.length">
+    <!-- <div class="mt-4" v-if="props.education.academicLeaves?.length">
       <div class="text-gray-500 text-sm mb-2">Academic Leave</div>
       <ul
         v-for="leave in props.education.academicLeaves"
@@ -56,7 +56,7 @@
           </ul>
         </li>
       </ul>
-    </div>
+    </div> -->
   </div>
 </template>
 

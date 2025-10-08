@@ -1,7 +1,7 @@
 <template>
-  <div class="p-4">
-    <div class="flex justify-center my-4 print:my-0">
-      <NuxtLink to="/" class="text-xl"> Nurbek Baizakov</NuxtLink>
+  <div>
+    <div class="flex justify-center px-4 pt-4 print:pt-0 print:px-0">
+      <NuxtLink to="/" class="text-2xl print:text-3xl"> Nurbek Baizakov</NuxtLink>
     </div>
     <div class="flex justify-center gap-2 print:hidden flex-wrap">
       <NuxtLink to="/">
@@ -41,7 +41,7 @@
         </Button>
       </NuxtLink>
     </div>
-    <div class="p-4">
+    <div class="px-4 pt-4 pb-8 print:p-0">
       <slot />
     </div>
   </div>

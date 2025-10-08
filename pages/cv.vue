@@ -1,9 +1,10 @@
 <template>
-  <div class="container">
-    <div
-      class="text-primary-600 font-medium uppercase underline text-center my-4"
-    >
-      Ready to relocate!
+  <div class="container mx-auto">
+    <div>
+      <div class="font-medium text-center text-2xl">Frontend Engineer</div>
+      <div class="text-primary-600 font-medium uppercase text-lg text-center">
+        Ready to relocate!
+      </div>
     </div>
     <ClientOnly>
       <div class="flex justify-end print:hidden" v-if="supportsPrint">
@@ -18,41 +19,45 @@
     <hr class="my-4 print:my-2 text-gray-400 border-dashed" />
     <div class="flex flex-col gap-8">
       <CvAddress />
-      <CvBlock title="Professional summary" class="leading-8 text-sm">
+      <CvBlock title="Summary" class="leading-6 text-sm text-gray-800">
         {{ professionalSummary }}
       </CvBlock>
-      <CvBlock title="Work Experience">
-        <div class="flex flex-col gap-4">
+      <CvBlock title="Professional experience">
+        <div class="flex flex-col">
           <CvExperienceItem
             v-for="experience in experiences"
             :key="experience.title"
             :experience="experience"
-            full-time
           />
         </div>
       </CvBlock>
       <CvBlock title="Education">
         <CvEducation :education="education" />
       </CvBlock>
-      <CvBlock title="Languages">
-        <ul class="list-disc list-inside">
-          <li v-for="lang in languages" :key="lang" class="my-1">{{ lang }}</li>
-        </ul>
-      </CvBlock>
       <CvBlock title="Skills">
-        <div class="flex gap-2 items-center flex-wrap">
-          <SharedSkillTag v-for="skill in skills" :key="skill" :value="skill" />
+        <div class="space-y-2">
+          <div class="inline text-sm">
+            <span class="mr-2 font-bold">Languages:</span>
+            <span>{{ languages.join(", ") }}</span>
+          </div>
+          <div class="inline-block mt-2 text-sm">
+            <span class="mr-2 font-bold">Technical:</span>
+            <span>{{ skills.join(", ") }}</span>
+          </div>
         </div>
       </CvBlock>
-      <CvBlock title="Awards">
+      <CvBlock title="Awards" class="print:hidden">
         <div class="flex flex-col gap-4">
           <div v-for="award in awards.slice(0, 3)" :key="award.award">
-            <div class="text-xs text-gray-500">
-              {{ award.dates.map(formatDate).join(" - ") }}
-            </div>
             <div>{{ award.award }}</div>
-            <div class="text-sm text-gray-700">
-              {{ award.location }}
+            <div class="flex items-center gap-2">
+              <div class="text-gray-500 text-sm inline-block">
+                {{ award.dates.map(formatDate).join(" - ") }}
+              </div>
+              <span class="text-gray-500 text-xs">•</span>
+              <div class="text-gray-500 text-sm inline-block">
+                {{ award.location }}
+              </div>
             </div>
           </div>
           <div
