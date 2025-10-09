@@ -1,4 +1,4 @@
-export type ExperienceType = 'employment' | 'project';
+export type ExperienceType = "employment" | "project";
 export interface CvExperience {
   id?: string;
   title: string;
@@ -21,10 +21,12 @@ export interface CvEducation {
   minor?: string;
   gpa?: string;
   courses?: string[];
-  academicLeaves?: Array<{ // Changed to Array type
+  academicLeaves?: Array<{
+    // Changed to Array type
     start: Date;
     end: Date;
-    reasons: Array<{ // Changed to Array type and made reasons non-optional
+    reasons: Array<{
+      // Changed to Array type and made reasons non-optional
       title: string;
       employmentType?: EmploymentType;
       company?: string;
@@ -33,7 +35,11 @@ export interface CvEducation {
   }>;
 }
 
-export type EmploymentType = "full-time" | "part-time" | "contract" | "internship";
+export type EmploymentType =
+  | "full-time"
+  | "part-time"
+  | "contract"
+  | "internship";
 
 export interface CvAward {
   dates: Date[];
@@ -49,3 +55,11 @@ export interface CvData {
   languages: string[];
   skills: string[];
 }
+
+export type Project = {
+  github?: string;
+  npm?: string;
+  name?: string;
+  description?: string;
+  technologies?: string[];
+};

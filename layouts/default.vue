@@ -18,12 +18,12 @@
           :class="route.path === '/cv' ? 'underline underline-offset-2' : ''"
         />
       </NuxtLink>
-      <NuxtLink to="/contact">
+      <NuxtLink to="/projects">
         <Button
-          label="Contact"
+          label="Projects"
           variant="link"
           :class="
-            route.path === '/contact' ? 'underline underline-offset-2' : ''
+            route.path === '/projects' ? 'underline underline-offset-2' : ''
           "
         />
       </NuxtLink>
