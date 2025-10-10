@@ -25,7 +25,7 @@ const projects: Project[] = [
     name: "package.json version provider",
     description: "Simple package.json version provider module for Nuxt",
     github: "https://github.com/nbaizaq/nuxt-version",
-    npm: "https://www.npmjs.com/package/@uictoria1/nuxt-version",
+    npm: "https://www.npmjs.com/package/nuxt-version",
     technologies: [
       "TypeScript",
       "NPM",

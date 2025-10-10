@@ -1,10 +1,10 @@
 <template>
-  <div class="border-1 border-primary-500">
+  <div class="border-2 border-primary-200 rounded-lg">
     <div class="relative p-4">
       <div class="text-2xl font-semibold">{{ project.name }}</div>
       <img
         src="~/assets/img/topography.svg"
-        class="w-full h-full absolute top-0 left-0 object-cover opacity-10"
+        class="w-full h-full absolute top-0 left-0 object-cover opacity-5"
       />
     </div>
     <div class="p-4">
