@@ -102,6 +102,7 @@ export const experiences: CvExperience[] = [
     id: "team-lead-frontend-ogogo",
     title: "Team Lead Frontend Engineer",
     start: new Date("2024-04-01"),
+    end: new Date("2025-10-31"),
     company: 'LLC "OGOGO"',
     location: "Bishkek, Kyrgyzstan",
     responsibilities: [

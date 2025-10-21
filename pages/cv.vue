@@ -22,7 +22,7 @@
       <CvBlock title="Summary" class="leading-6 text-sm text-gray-800">
         {{ professionalSummary }}
       </CvBlock>
-      <CvBlock title="Professional experience">
+      <CvBlock title="Experience">
         <div class="flex flex-col">
           <CvExperienceItem
             v-for="experience in experiences"
