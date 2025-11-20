@@ -32,7 +32,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      baseUrl: "https://cv.nbaizaq.xyz",
+      baseUrl: "https://nbaizaq.xyz",
     },
   },
   vite: {
