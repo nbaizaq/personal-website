@@ -77,8 +77,10 @@ export interface CvData {
   experiences: CvExperience[];
   education: CvEducation;
   awards: CvAward[];
-  languages: string[];
-  skills: string[];
+  skills: Record<
+    CvTechnicalStack["type"],
+    { name: string; technologies: string[] }
+  >;
 }
 
 export type Project = {
