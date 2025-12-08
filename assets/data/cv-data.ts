@@ -180,33 +180,32 @@ export const education: CvEducation = {
   degree: "Bachelor of Science",
   major: "Electrical Engineering",
   minor: "Computer Science and Engineering",
-  // TODO: add GPA
-  academicLeaves: [
-    {
-      start: new Date("2019-09-01"),
-      end: new Date("2020-02-01"),
-      reasons: [
-        {
-          title: "Internship",
-          employmentType: "full-time" as EmploymentType, // Cast to EmploymentType
-          company: 'LLC "Mega Soft"',
-          experienceId: "csharp-developer-megasoft", // Link to the C# Developer experience
-        },
-      ],
-    },
-    {
-      start: new Date("2020-09-01"),
-      end: new Date("2021-06-01"),
-      reasons: [
-        {
-          title: "Employment",
-          employmentType: "full-time" as EmploymentType, // Cast to EmploymentType
-          company: 'LLC "CRM Technologies"',
-          experienceId: "fullstack-php-crmtech", // Link to the Full Stack PHP Developer experience
-        },
-      ],
-    },
-  ],
+  // academicLeaves: [
+  //   {
+  //     start: new Date("2019-09-01"),
+  //     end: new Date("2020-02-01"),
+  //     reasons: [
+  //       {
+  //         title: "Internship",
+  //         employmentType: "full-time" as EmploymentType, // Cast to EmploymentType
+  //         company: 'LLC "Mega Soft"',
+  //         experienceId: "csharp-developer-megasoft", // Link to the C# Developer experience
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     start: new Date("2020-09-01"),
+  //     end: new Date("2021-06-01"),
+  //     reasons: [
+  //       {
+  //         title: "Employment",
+  //         employmentType: "full-time" as EmploymentType, // Cast to EmploymentType
+  //         company: 'LLC "CRM Technologies"',
+  //         experienceId: "fullstack-php-crmtech", // Link to the Full Stack PHP Developer experience
+  //       },
+  //     ],
+  //   },
+  // ],
 };
 
 export const awards: CvAward[] = [
@@ -239,12 +238,6 @@ export const awards: CvAward[] = [
 awards.sort((a, b) => {
   return new Date(b.dates[0]).getTime() - new Date(a.dates[0]).getTime();
 });
-
-export const languages: string[] = [
-  "English(Fluent)",
-  "Russian(Fluent)",
-  "Kyrgyz(Native)",
-];
 
 function getSkills(experiences: CvExperience[]) {
   const MAX_TECHNOLOGY_COUNT = 10;
