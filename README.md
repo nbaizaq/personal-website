@@ -1,6 +1,6 @@
 # Personal Portfolio and Blog
 
-Welcome to my personal website - [nbaizaq.github.io](https://nbaizaq.github.io), built using [Nuxt.js](https://nuxt.com/). This project showcases my work, skills, and thoughts on various topics.
+Welcome to my personal website - [nbaizaq.xyz](https://nbaizaq.xyz), built using [Nuxt.js](https://nuxt.com/). This project showcases my work, skills, and thoughts on various topics.
 
 ## Setup
 
