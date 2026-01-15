@@ -66,11 +66,11 @@ export const experiences: CvExperience[] = [
     technicalStack: [
       {
         type: "frontend",
-        technologies: ["jQuery", "Bootstrap", "PHP", "CSS", "HTML"],
+        technologies: ["React.js", "PHP", "CSS", "HTML"],
       },
       {
         type: "backend",
-        technologies: ["PHP", "REST", "REST"],
+        technologies: ["PHP", "REST"],
       },
     ],
   },
@@ -87,7 +87,7 @@ export const experiences: CvExperience[] = [
     technicalStack: [
       {
         type: "frontend",
-        technologies: ["Vue.js", "TailwindCSS"],
+        technologies: ["React.js", "TailwindCSS"],
       },
       {
         type: "backend",
@@ -107,13 +107,14 @@ export const experiences: CvExperience[] = [
     company: 'LLC "Tumarsoft"',
     location: "Bishkek, Kyrgyzstan",
     responsibilities: [
-      "Delivered robust and scalable solutions using Vue.js, integrating advanced error handling and monitoring systems to enhance stability using Sentry, while concurrently building a full-stack demo environment that accelerated time to market by several months.",
+      "Delivered robust and scalable solutions using React.js(Vue.js), integrating advanced error handling and monitoring systems to enhance stability using Sentry, while concurrently building a full-stack demo environment that accelerated time to market by several months.",
       "Established team workflow and processes, including code reviews, pair programming, and knowledge sharing, which resulted in a more efficient and collaborative development environment.",
     ],
     technicalStack: [
       {
         type: "frontend",
         technologies: [
+          "React.js",
           "Vue.js",
           "Webpack",
           "Vuetify",
@@ -148,14 +149,21 @@ export const experiences: CvExperience[] = [
         technologies: [
           "JavaScript(TypeScript)",
           "React.js",
+          "Vue.js",
           "Next.js",
           "Nuxt.js",
           "Vite",
+          "WebSocket",
         ],
       },
       {
         type: "devops",
-        technologies: ["Docker", "Gitlab CI/CD", "Github Actions"],
+        technologies: [
+          "Docker",
+          "Docker Compose",
+          "Gitlab CI/CD",
+          "Github Actions",
+        ],
       },
     ],
   },
@@ -169,7 +177,7 @@ export const totalYears = calculateTotalExperienceYears(experiences);
 export const professionalSummary = (() => {
   return `Senior Frontend Engineer with ~${Math.ceil(
     totalYears
-  )} years delivering scalable web and fintech applications. Core focus on frameworks(Vue.js, React.js) with SSR, SPA approaches, CI/CD, microservices architecture, and design systems. Proven leader in Agile environments.`;
+  )} years delivering scalable web and fintech applications. Core focus on frameworks(React.js, Vue.js) with SSR, SPA approaches, CI/CD, microservices architecture, and design systems. Proven leader in Agile environments.`;
 })();
 
 export const education: CvEducation = {
