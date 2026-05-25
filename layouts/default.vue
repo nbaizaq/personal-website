@@ -23,6 +23,13 @@
         >
           Projects
         </NuxtLink>
+        <NuxtLink
+          to="/swimming"
+          class="link"
+          :class="route.path === '/swimming' ? 'text-primary-500 bg-white' : ''"
+        >
+          Swimming
+        </NuxtLink>
       </div>
       <div class="flex justify-center gap-2 flex-wrap mt-2 text-primary-50">
         <NuxtLink
@@ -44,7 +51,13 @@
           target="_blank"
           class="flex gap-1 items-center link"
         >
-          <img src="~/assets/img/leetcode.png" class="w-4 h-4" />LeetCode
+          <NuxtImg
+            src="/leetcode.png"
+            alt=""
+            width="16"
+            height="16"
+            class="w-4 h-4"
+          />LeetCode
         </NuxtLink>
       </div>
     </div>

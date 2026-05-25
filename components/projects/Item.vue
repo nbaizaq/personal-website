@@ -2,8 +2,9 @@
   <div class="border-2 border-primary-200 bg-primary-50">
     <div class="relative p-4">
       <div class="text-2xl font-semibold">{{ project.name }}</div>
-      <img
-        src="~/assets/img/topography.svg"
+      <NuxtImg
+        src="/topography.svg"
+        alt=""
         class="w-full h-full absolute top-0 left-0 object-cover opacity-10"
       />
     </div>

@@ -7,7 +7,12 @@
       engineer.
     </div>
     <div>
-      <img src="~/assets/img/home-me.jpeg" />
+      <NuxtImg
+        src="/home-me.jpeg"
+        alt="Nurbek Baizakov"
+        sizes="sm:100vw md:768px"
+        loading="eager"
+      />
     </div>
     <p class="text-xl leading-relaxed">
       I have been working as a software developer for the past

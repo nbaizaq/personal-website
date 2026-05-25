@@ -3,12 +3,25 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  modules: [],
+  modules: ["@nuxt/image"],
+  image: {
+    dir: "assets/img",
+    quality: 80,
+    format: ["webp"],
+  },
   css: ["~/assets/css/main.css"],
+  // ipxStatic (used with nitro.static) pre-renders images at build time but has no
+  // dev server handler — enable runtime ipx in development so /_ipx/* resolves locally.
+  $development: {
+    nitro: {
+      static: false,
+    },
+  },
   nitro: {
     static: true,
     prerender: {
-      routes: ["/cv-data.json"],
+      crawlLinks: true,
+      routes: ["/cv-data.json", "/swimming-data.json", "/swimming"],
     },
   },
   app: {

@@ -3,14 +3,19 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
+    "build": "node scripts/generate-swim-maps.mjs && nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "generate": "node scripts/generate-swim-maps.mjs && nuxt generate",
+    "generate:maps": "node scripts/generate-swim-maps.mjs",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxt/image": "^2.0.0",
     "@tailwindcss/vite": "^4.0.12",
+    "@types/leaflet": "^1.9.21",
+    "chart.js": "^4.5.1",
+    "leaflet": "^1.9.4",
     "nuxt": "^3.16.0",
     "primeicons": "^7.0.0",
     "tailwindcss": "^4.0.12",
@@ -19,10 +24,17 @@
     "vue-router": "^4.5.0"
   },
   "packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c",
+  "pnpm": {
+    "supportedArchitectures": {
+      "os": ["current", "linux"],
+      "cpu": ["current", "x64"]
+    }
+  },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.13.1",
     "@primevue/nuxt-module": "^4.3.1",
     "@vitejs/plugin-vue": "^5.2.4",
+    "staticmaps": "^1.13.1",
     "vitest": "^3.2.2"
   }
 }
