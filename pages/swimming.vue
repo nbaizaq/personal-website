@@ -13,7 +13,15 @@
           {{ copy.activities }}
         </span>
         <span class="swim-badge">{{ copy.dateRange }}</span>
-        <span class="swim-badge">Garmin Connect</span>
+        <a
+          class="swim-badge swim-badge-link"
+          href="https://connect.garmin.com/modern/profile/a3bdbec9-8ab7-468f-af97-3bafe3d4c88d"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Garmin Connect
+          <i class="pi pi-external-link swim-badge-ext" aria-hidden="true" />
+        </a>
       </div>
     </header>
 
@@ -433,6 +441,18 @@ useHead({ title: "Swimming Dashboard" });
 
 .swim-badge {
   @apply inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary-50 border border-primary-100 rounded-full text-xs font-medium text-primary-800;
+}
+
+.swim-badge-link {
+  @apply transition-colors hover:bg-primary-100 hover:border-primary-200;
+}
+
+.swim-badge-icon {
+  @apply w-3.5 h-3.5 shrink-0;
+}
+
+.swim-badge-ext {
+  @apply text-[0.65rem] opacity-60;
 }
 
 .swim-badge-dot {
