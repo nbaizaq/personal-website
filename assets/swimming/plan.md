@@ -45,4 +45,4 @@
 #### Week 24: Taper & Race
 	+ Swim 1: 8,000m,
 	+ Swim 2: 4,000m,
-	+ Swim 3: 16,000m (Goal Swim), Pace per 100m: 3:13
+	+ Swim 3: 16,000m (Goal Swim), Pace per 100m: 2:45
