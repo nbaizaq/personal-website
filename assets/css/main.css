@@ -20,6 +20,10 @@ body {
   font-family: "Lato", sans-serif;
 }
 
+.site-header {
+  padding-top: calc(1.5rem + env(safe-area-inset-top, 0px));
+}
+
 .container {
   @apply w-full md:w-3/4 md:mx-auto lg:w-1/2;
 }
