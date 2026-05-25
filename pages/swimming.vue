@@ -401,9 +401,12 @@ import {
   fmtSeconds,
   fmtSignedSeconds,
 } from "~/utils/swimming/format";
+import { MAP_STATIC_DETAIL } from "~/utils/swimming/map-shared";
 import type { SwimmingData } from "~/utils/swimming/types";
 
 const preferStaticMaps = import.meta.env.PROD;
+const { public: { baseUrl } } = useRuntimeConfig();
+const ogImage = `${baseUrl}${MAP_STATIC_DETAIL}`;
 
 const { data: swimming } = await useFetch<SwimmingData>("/swimming-data.json");
 
@@ -417,7 +420,20 @@ const paceLegend = computed(() => [
   { label: "Best", value: fmtPaceSlash(stats.value.paceBest), color: "#142135" },
 ]);
 
-useHead({ title: "Swimming Dashboard" });
+useSeoMeta({
+  title: "Swimming Dashboard",
+  description: "Open water and pool swimming stats from Garmin Connect.",
+  ogTitle: "Swimming Dashboard",
+  ogDescription: "Open water and pool swimming stats from Garmin Connect.",
+  ogImage,
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: "August swim route — 13.3 km open water course",
+  ogUrl: `${baseUrl}/swimming`,
+  ogType: "website",
+  twitterCard: "summary_large_image",
+  twitterImage: ogImage,
+});
 </script>
 
 <style scoped>
@@ -534,7 +550,7 @@ useHead({ title: "Swimming Dashboard" });
 }
 
 .swim-info-tip-text {
-  @apply pointer-events-none absolute left-1/2 bottom-full z-20 mb-1.5 w-44 -translate-x-1/2
+  @apply pointer-events-none absolute left-1/2 bottom-full z-10 mb-1.5 w-44 -translate-x-1/2
     rounded-md border border-gray-200 bg-white px-2 py-1.5 text-[0.65rem] normal-case
     leading-snug tracking-normal text-gray-600 shadow-md opacity-0 invisible
     transition-opacity duration-150;
