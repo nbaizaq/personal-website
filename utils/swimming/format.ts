@@ -153,7 +153,6 @@ export function buildSwimmingCopy(stats: SwimStats) {
     legendPlan: `Week ${stats.goalWeek} plan (${fmtNum(stats.planPct)}% of route)`,
     legendFinish: `Route finish (${routeDistance})`,
     mapDesc: `Satellite track · open water · ${routeDistance} straight-line course`,
-    routeBadge: `Route · <span>${routeDistance}</span>`,
     estTimeLabel: `Est. time @ ${stats.routeAugustPace}`,
     paceTrendDesc: `Linear trend across all ${fmtNum(stats.activityCount)} activities · ${fmtDateRange(stats.rangeStart, stats.rangeEnd)}`,
     trendTag: `−${fmtNum(stats.trendSecPerYear)} sec / year`,

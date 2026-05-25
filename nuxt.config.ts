@@ -21,7 +21,12 @@ export default defineNuxtConfig({
     static: true,
     prerender: {
       crawlLinks: true,
-      routes: ["/cv-data.json", "/swimming-data.json", "/swimming"],
+      routes: [
+        "/cv-data.json",
+        "/swimming-data.json",
+        "/activities",
+        "/activities/swimming",
+      ],
     },
   },
   app: {

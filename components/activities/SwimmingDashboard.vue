@@ -1,13 +1,6 @@
 <template>
   <div v-if="swimming" class="max-w-6xl mx-auto space-y-4 pb-8">
-    <header
-      class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 pt-2"
-    >
-      <div>
-        <h1 class="text-3xl font-bold text-primary-950">Swimming Dashboard</h1>
-        <p class="text-gray-500 mt-1">Your performance at a glance</p>
-      </div>
-      <div class="flex flex-wrap gap-2 justify-end">
+    <header class="flex flex-wrap gap-2 justify-end">
         <span class="swim-badge">
           <span class="swim-badge-dot" />
           {{ copy.activities }}
@@ -22,7 +15,6 @@
           Garmin Connect
           <i class="pi pi-external-link swim-badge-ext" aria-hidden="true" />
         </a>
-      </div>
     </header>
 
     <section class="swim-card swim-overview-card">
@@ -231,14 +223,10 @@
           <span class="swim-tag">{{ fmtKm(stats.routeKm, 1) }}</span>
         </div>
 
-        <SwimmingMapStatic
-          v-if="swimming && preferStaticMaps"
-          :route-badge="copy.routeBadge"
-        />
+        <SwimmingMapStatic v-if="swimming && preferStaticMaps" />
         <ClientOnly v-else-if="swimming">
           <SwimmingMap
             :route="swimming.route"
-            :route-badge="copy.routeBadge"
             start-label="Start"
             finish-label="Finish"
           />
@@ -401,12 +389,9 @@ import {
   fmtSeconds,
   fmtSignedSeconds,
 } from "~/utils/swimming/format";
-import { MAP_STATIC_DETAIL } from "~/utils/swimming/map-shared";
 import type { SwimmingData } from "~/utils/swimming/types";
 
 const preferStaticMaps = import.meta.env.PROD;
-const { public: { baseUrl } } = useRuntimeConfig();
-const ogImage = `${baseUrl}${MAP_STATIC_DETAIL}`;
 
 const { data: swimming } = await useFetch<SwimmingData>("/swimming-data.json");
 
@@ -419,21 +404,6 @@ const paceLegend = computed(() => [
   { label: "Current", value: fmtPaceSlash(stats.value.paceCurrent), color: "#5182d2" },
   { label: "Best", value: fmtPaceSlash(stats.value.paceBest), color: "#142135" },
 ]);
-
-useSeoMeta({
-  title: "Swimming Dashboard",
-  description: "Open water and pool swimming stats from Garmin Connect.",
-  ogTitle: "Swimming Dashboard",
-  ogDescription: "Open water and pool swimming stats from Garmin Connect.",
-  ogImage,
-  ogImageWidth: 1200,
-  ogImageHeight: 630,
-  ogImageAlt: "August swim route — 13.3 km open water course",
-  ogUrl: `${baseUrl}/swimming`,
-  ogType: "website",
-  twitterCard: "summary_large_image",
-  twitterImage: ogImage,
-});
 </script>
 
 <style scoped>

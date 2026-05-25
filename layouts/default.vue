@@ -24,11 +24,11 @@
           Projects
         </NuxtLink>
         <NuxtLink
-          to="/swimming"
+          to="/activities"
           class="link"
-          :class="route.path === '/swimming' ? 'text-primary-500 bg-white' : ''"
+          :class="route.path.startsWith('/activities') ? 'text-primary-500 bg-white' : ''"
         >
-          Swimming
+          Activities
         </NuxtLink>
       </div>
       <div class="flex justify-center gap-2 flex-wrap mt-2 text-primary-50">
