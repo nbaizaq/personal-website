@@ -1,52 +1,60 @@
 <template>
   <div class="space-y-4">
     <section class="swim-card">
-      <div class="swim-card-header">
-        <div>
-          <h3 class="swim-card-title">Pace Over Time</h3>
-          <p class="swim-card-desc">Average pace per 100m — lower is faster</p>
+      <div class="p-5">
+        <div class="swim-card-header !px-0 !pt-0">
+          <div>
+            <h3 class="swim-card-title">Pace Over Time</h3>
+            <p class="swim-card-desc">Average pace per 100m — lower is faster</p>
+          </div>
         </div>
-      </div>
-      <div class="h-[340px] relative">
-        <canvas ref="paceCanvas" class="block w-full h-full" />
+        <div class="h-[340px] relative">
+          <canvas ref="paceCanvas" class="block w-full h-full" />
+        </div>
       </div>
     </section>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
       <section class="swim-card">
-        <div class="swim-card-header">
-          <div>
-            <h3 class="swim-card-title">Distance</h3>
-            <p class="swim-card-desc">Per session & cumulative total</p>
+        <div class="p-5">
+          <div class="swim-card-header !px-0 !pt-0">
+            <div>
+              <h3 class="swim-card-title">Distance</h3>
+              <p class="swim-card-desc">Per session & cumulative total</p>
+            </div>
           </div>
-        </div>
-        <div class="h-[300px] relative">
-          <canvas ref="distanceCanvas" class="block w-full h-full" />
+          <div class="h-[300px] relative">
+            <canvas ref="distanceCanvas" class="block w-full h-full" />
+          </div>
         </div>
       </section>
 
       <section class="swim-card">
-        <div class="swim-card-header">
-          <div>
-            <h3 class="swim-card-title">Heart Rate</h3>
-            <p class="swim-card-desc">Average & max bpm per session</p>
+        <div class="p-5">
+          <div class="swim-card-header !px-0 !pt-0">
+            <div>
+              <h3 class="swim-card-title">Heart Rate</h3>
+              <p class="swim-card-desc">Average & max bpm per session</p>
+            </div>
           </div>
-        </div>
-        <div class="h-[300px] relative">
-          <canvas ref="hrCanvas" class="block w-full h-full" />
+          <div class="h-[300px] relative">
+            <canvas ref="hrCanvas" class="block w-full h-full" />
+          </div>
         </div>
       </section>
     </div>
 
     <section class="swim-card">
-      <div class="swim-card-header">
-        <div>
-          <h3 class="swim-card-title">Monthly Distance</h3>
-          <p class="swim-card-desc">Total swam each month & running cumulative</p>
+      <div class="p-5">
+        <div class="swim-card-header !px-0 !pt-0">
+          <div>
+            <h3 class="swim-card-title">Monthly Distance</h3>
+            <p class="swim-card-desc">Total swam each month & running cumulative</p>
+          </div>
         </div>
-      </div>
-      <div class="h-[300px] relative">
-        <canvas ref="monthlyCanvas" class="block w-full h-full" />
+        <div class="h-[300px] relative">
+          <canvas ref="monthlyCanvas" class="block w-full h-full" />
+        </div>
       </div>
     </section>
   </div>
@@ -620,7 +628,7 @@ onBeforeUnmount(destroyCharts);
 }
 
 .swim-card-header {
-  @apply flex items-start justify-between gap-4 mb-4 px-5 pt-5;
+  @apply flex items-start justify-between gap-4 mb-4;
 }
 
 .swim-card-title {
