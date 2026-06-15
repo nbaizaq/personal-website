@@ -1,7 +1,7 @@
 
 #### Week 15
 	Weekly Total: 17,000m
-	+ Swim 1: 5,000m
+	+ [x] Swim 1: 5,000m
 	+ Swim 2: 5,000m
 	+ Swim 3 (Long): 7,000m
 
