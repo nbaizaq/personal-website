@@ -1,6 +1,6 @@
 import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
-import { ROUTE_DISPLAY_KM, SWIM_ROUTE } from "./constants";
+import { ROUTE_DISPLAY_KM, SWIM_ROUTE, VOLUME_MILESTONE_KM } from "./constants";
 import {
   estimateTrainingWeek,
   formatPace,
@@ -199,7 +199,10 @@ export function buildSwimmingData(): SwimmingData {
       trendSecPerMonth,
       rangeStart,
       rangeEnd,
-      heroStatBarPct: Math.min(100, Math.round((totalMeters / 100000) * 100)),
+      heroStatBarPct: Math.min(
+        100,
+        Math.round((totalMeters / (VOLUME_MILESTONE_KM * 1000)) * 100),
+      ),
       goalRingOffset,
       paceArcOffset,
       goalBarCurrentPct,

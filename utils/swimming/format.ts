@@ -1,3 +1,4 @@
+import { VOLUME_MILESTONE_KM } from "./constants";
 import type { SwimStats } from "./types";
 
 const LOCALE = "en-US";
@@ -125,8 +126,8 @@ export function buildSwimmingCopy(stats: SwimStats) {
         ? fmtDurationFromSeconds(stats.avgRestTimeSec)
         : null,
     heroSummary: buildHeroSummary(stats),
-    volumeMilestoneLabel: "100 km milestone",
-    volumeMilestonePct: `${fmtNum(stats.heroStatBarPct)}% · ${fmtKm(stats.totalKm, 1)} of 100 km`,
+    volumeMilestoneLabel: `${fmtKm(VOLUME_MILESTONE_KM, 0)} milestone`,
+    volumeMilestonePct: `${fmtNum(stats.heroStatBarPct)}% · ${fmtKm(stats.totalKm, 1)} of ${fmtKm(VOLUME_MILESTONE_KM, 0)}`,
     totalSwimTime:
       stats.totalMovingTimeMin > 0
         ? `${fmtDurationFromMinutes(stats.totalMovingTimeMin)} total swim time`

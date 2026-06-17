@@ -7,3 +7,5 @@ export const SWIM_ROUTE: SwimRoute = {
 };
 
 export const ROUTE_DISPLAY_KM = 13.3;
+
+export const VOLUME_MILESTONE_KM = 200;
